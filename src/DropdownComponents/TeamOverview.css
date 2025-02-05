@@ -1,0 +1,366 @@
+.team-overview {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  font-family: 'Arial', sans-serif;
+}
+
+.main-content {
+  display: flex;
+  justify-content: space-between;
+}
+
+.left-column, .middle-column, .right-column {
+  flex: 1;
+  margin: 0 10px;
+}
+
+.right-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.right-column .section {
+  margin-bottom: 20px;
+}
+
+.trade-section {
+  margin-top: 20px;
+}
+
+.toggle-container {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.toggle-button {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  background-color: #f0f0f0;
+  cursor: pointer;
+}
+
+.toggle-button.active {
+  background-color: #007bff;
+  color: white;
+}
+
+.team-title {
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 30px;
+}
+
+.overview-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.section-container {
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  padding: 15px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.roster-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.roster-list li {
+  margin-bottom: 5px;
+}
+
+.roster-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.roster-table th,
+.roster-table td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.roster-table th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+.roster-table .even {
+  background-color: #f9f9f9;
+}
+
+.roster-table .odd {
+  background-color: #e9f0f7;
+}
+
+/* Additional styles to make containers invisible */
+.positions-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  position: relative;
+  background-color: transparent;
+}
+
+.position-section {
+  background-color: transparent;
+}
+
+.position-section {
+  width: 100%;
+}
+
+.position-columns {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.position-column {
+  flex: 1;
+  min-width: 150px;
+  text-align: center;
+  padding: 0 10px;
+}
+
+.player-slot {
+  height: 80px;
+  margin-bottom: 10px;
+  background-color: #ffffff;
+  border: 1px solid #dee2e6;
+  border-radius: 5px;
+  display: flex;          /* Center the player info */
+  justify-content: center; /* Center horizontally */
+  align-items: center;     /* Center vertically */
+}
+
+.player-placeholder {
+  height: 80px;
+  width: 100%;
+  background-color: #e9ecef;
+  border: 2px dashed #ced4da;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.player-info {
+  height: 100%;
+  width: 100%;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;     /* Center content horizontally */
+  justify-content: center; /* Center content vertically */
+  text-align: center;      /* Center text */
+}
+
+/* Add styles for when dragging */
+.dragging {
+  background-color: #f8f9fa;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.player-name {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: clamp(0.75rem, 2vw, 1rem);
+}
+
+.player-details {
+  font-size: clamp(0.6rem, 1.5vw, 0.8rem);
+}
+
+.action-buttons {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.action-button {
+  background-color: #007bff;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  margin: 5px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.action-button:hover {
+  background-color: #0056b3;
+}
+
+.lines.section-container {
+  margin-top: 20px;
+}
+
+.forward-container, .defense-container, .goalie-container {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.forward-column, .defense-column, .goalie-column {
+  flex: 1;
+  padding: 0 10px;
+  text-align: center;
+  min-width: 150px;
+}
+
+.player-list-header,
+.player-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  gap: 10px;
+  padding: 5px;
+  align-items: center;
+}
+
+.player-list-header {
+  font-weight: bold;
+  background-color: #f0f0f0;
+}
+
+.player-list {
+  width: 150px;
+  min-height: 300px;
+  background-color: transparent; /* Make container invisible */
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.player-row:nth-child(even) {
+  background-color: #f8f8f8;
+}
+
+.player-row:nth-child(odd) {
+  background-color: #e8e8e8;
+}
+
+.sign-player-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.sign-player-popup input {
+  display: block;
+  margin: 10px 0;
+  padding: 5px;
+}
+
+.confirm-exit-popup {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.roster-list,
+.free-agency-list {
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  min-width: 300px;
+}
+
+.section.picks {
+  padding: 15px;
+}
+
+.picks-content {
+  display: flex;
+  justify-content: center; /* Center the picks horizontally */
+  gap: 15px; /* Increased gap for better spacing */
+  margin-top: 15px;
+}
+
+.pick-icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.pick-icon.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.pick-icon.inactive {
+  background-color: #9e9e9e;
+  color: #616161;
+}
+
+.buyout-area {
+  border: 2px dashed #ccc;
+  min-height: 100px;
+  padding: 10px;
+}
+
+.buyout-players {
+  margin-top: 10px;
+}
+
+.buyout-player {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px;
+  padding: 5px;
+  border: 1px solid #ddd;
+}
+
+@media (max-width: 768px) {
+  .position-columns, .forward-container, .defense-container, .goalie-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .position-column, .forward-column, .defense-column, .goalie-column {
+    width: 100%;
+    max-width: 300px;
+    margin-bottom: 20px;
+  }
+}

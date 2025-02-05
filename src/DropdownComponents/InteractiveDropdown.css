@@ -1,0 +1,34 @@
+/* Dropdown container */
+.dropdown-menu {
+    position: absolute; /* Position relative to the parent container */
+    top: 100%; /* Align the dropdown below its trigger */
+    left: 0;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 9999; /* Ensure it appears on top of other elements */
+    border-radius: 4px; /* Add rounded corners */
+    padding: 4px 0; /* Adjust padding for better spacing */
+  }
+  
+  /* Dropdown item */
+  .dropdown-item {
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    color: black;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out; /* Smooth hover effect */
+  }
+  
+  /* Hover effect for dropdown items */
+  .dropdown-item.hovered {
+    background-color: #f1f1f1;
+  }
+  
+  /* Optional: Navbar setup if needed for context */
+  .navbar {
+    position: relative; /* Navbar acts as a positioning reference */
+    overflow: visible; /* Ensure dropdowns are not clipped */
+  }
+  
