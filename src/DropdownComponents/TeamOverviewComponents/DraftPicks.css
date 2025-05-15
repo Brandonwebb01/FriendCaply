@@ -1,0 +1,100 @@
+.section.picks {
+  padding: 1rem;
+}
+
+.picks-content {
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+.pick-item {
+  flex: 1;
+  min-width: 60px;
+  max-width: 80px;
+}
+
+.pick-with-logo,
+.pick-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.pick-number {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+}
+
+.pick-logo {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+}
+
+.empty-pick-placeholder {
+  width: 50px;
+  height: 50px;
+  background-color: #f0f0f0;
+  border: 2px dashed #ccc;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Make the owned picks stand out more */
+.pick-with-logo .pick-number {
+  color: #0066cc;
+}
+
+/* Fade effect for non-owned picks */
+.pick-empty {
+  opacity: 0.5;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .picks-content {
+    gap: 0.5rem;
+  }
+  
+  .pick-item {
+    min-width: 40px;
+    max-width: 60px;
+  }
+  
+  .pick-logo,
+  .empty-pick-placeholder {
+    width: 35px;
+    height: 35px;
+  }
+  
+  .pick-number {
+    font-size: 1rem;
+  }
+}
+
+/* Optional: Add round labels */
+.pick-with-logo .pick-number::after,
+.pick-empty .pick-number::after {
+  content: '';
+  display: block;
+  font-size: 0.7rem;
+  font-weight: normal;
+  color: #666;
+  margin-top: 2px;
+}
+
+.pick-item:nth-child(1) .pick-number::after { content: '1st Round'; }
+.pick-item:nth-child(2) .pick-number::after { content: '2nd Round'; }
+.pick-item:nth-child(3) .pick-number::after { content: '3rd Round'; }
+.pick-item:nth-child(4) .pick-number::after { content: '4th Round'; }
+.pick-item:nth-child(5) .pick-number::after { content: '5th Round'; }
+.pick-item:nth-child(6) .pick-number::after { content: '6th Round'; }
+.pick-item:nth-child(7) .pick-number::after { content: '7th Round'; }

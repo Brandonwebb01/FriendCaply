@@ -33,9 +33,18 @@ const TeamsDropdown = ({ show, teams, onSelectTeam }) => {
                 className={`team-item ${hoveredItem === team.team_id ? 'hovered' : ''}`}
                 onMouseEnter={() => setHoveredItem(team.team_id)}
                 onMouseLeave={() => setHoveredItem(null)}
-                onClick={() => onSelectTeam(team)} // Add this onClick handler
+                onClick={() => onSelectTeam(team)}
               >
-                {team.team_name}
+                <div className="team-item-content">
+                  {team.logo && (
+                    <img 
+                      src={team.logo} 
+                      alt={`${team.team_name} logo`}
+                      className="team-dropdown-logo"
+                    />
+                  )}
+                  <span className="team-name">{team.team_name}</span>
+                </div>
               </div>
             ))}
           </div>

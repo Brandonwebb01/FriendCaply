@@ -9,6 +9,7 @@ import DraftPicks from './TeamOverviewComponents/DraftPicks';
 import BuyoutSection from './TeamOverviewComponents/BuyoutSection';
 import SignPlayerModal from './TeamOverviewComponents/SignPlayerModal';
 import BuyoutPopup from './TeamOverviewComponents/BuyoutPopup';
+import TeamLogo from './TeamOverviewComponents/TeamLogo';
 
 const TeamOverview = ({ team }) => {
   const { team_id, team_name } = team;
@@ -89,6 +90,25 @@ const TeamOverview = ({ team }) => {
       </>
     );
   };
+
+  const TeamTitleWithLogo = ({ teamName, teamId }) => {
+  return (
+    <div className="team-title-container">
+      <TeamLogo 
+        teamId={teamId} 
+        className="team-title-background-logo"
+        style={{ 
+          position: 'absolute',
+          width: '200px',
+          height: '200px',
+          opacity: 0.1,
+          zIndex: 0
+        }}
+      />
+      <h1 className="team-title">{teamName} Overview</h1>
+    </div>
+  );
+};
 
   const formatSalary = (salary) => {
     return salary ? `$${salary.toLocaleString()}` : 'N/A';
@@ -206,7 +226,7 @@ const TeamOverview = ({ team }) => {
   return (
     <DragDropContext onDragEnd={onDragEnd}>
       <div className="team-overview">
-        <h1 className="team-title">{team_name} Overview</h1>
+        <TeamTitleWithLogo teamName={team_name} teamId={team_id} />
 
         <div className="main-content">
           {/* Left Column: Roster / Free Agency */}
